@@ -63,7 +63,7 @@ const useKeypad = () => {
     
 
     const handleLeft = () => {
-        if(state.x === 3){
+        if(state.x === 1){
             setState({...state, boundry:true, message:"You can't go left anymore, buddy"})
         } else {
             setState((state) => ({
