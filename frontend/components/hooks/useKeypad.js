@@ -1,5 +1,6 @@
-// import axios from 'axios';
+
 import { useState } from 'react';
+import axios from 'axios';
 
 const URL =  "http://localhost:9000/api/result";
 
@@ -11,6 +12,7 @@ const initialState = {
     email: '',
     boundry: false,
     message: '',
+    popUp: '',
 }
 
 const useKeypad = () => {
@@ -82,10 +84,43 @@ const useKeypad = () => {
 
     }
 
-    
+    const handleEmail = (e) => {
+        setState({
+          ...state,
+          email: e.target.value
+        })
+    }
+
+    const onSubmit = e =>{
+        e.preventDefault();
+        const payload = {
+          x:state.x,
+          y:state.y,
+          steps:state.steps,
+          email:state.email,
+        }
+        axios.post(URL, payload)
+        .then(res=>{
+          console.log(res.data)
+          setState({...state,
+          message: res.data.message,
+          submit:true,
+          popUp: '',
+        })
+      })
+      .catch(err=>{
+        const errorMessage = err.response.data.message
+          setState({...state,
+          message:errorMessage,
+          submit: true,
+          popUp: ''})
+      })  
+        setState({...state,input:e.target.reset()})
+      }
+
     
 
-    return [handleReset,handleDown,handleUp,handleRight,handleLeft, state]
+    return [onSubmit, handleEmail, handleReset,handleDown,handleUp,handleRight,handleLeft, state]
 }
 
 export default useKeypad;

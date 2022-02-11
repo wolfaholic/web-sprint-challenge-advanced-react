@@ -8,6 +8,8 @@ import useKeypad from './hooks/useKeypad'
 export default function AppFunctional(props) {
 
 const [
+  onSubmit,
+  handleEmail,
   handleReset,
   handleDown,
   handleUp,
@@ -20,11 +22,9 @@ const  {
   boundry, 
   message, 
   x, 
-  y
+  y,
+  email,
 } = state
-
-
-
 
 
   return (
@@ -46,6 +46,7 @@ const  {
       </div>
       <div className="info">
         {boundry?<h3 id="message">{message}</h3>:<h3 id="message"></h3>}
+        {email?<h3 id="message">{message}</h3>:<h3 id="message"></h3>}
       </div>
       <div id="keypad">
         <button onClick={handleLeft} id="left">LEFT</button>
@@ -54,10 +55,10 @@ const  {
         <button onClick={handleDown} id="down">DOWN</button>
         <button onClick={handleReset} id="reset">reset</button>
       </div>
-      <form>
-        <input id="email" type="email" placeholder="type email"></input>
-        <input id="submit" type="submit"></input>
-      </form>
+      <form onSubmit={onSubmit}>
+          <input onChange={handleEmail} id="email" type="email" placeholder="type email"></input>
+          <input id="submit" type="submit"></input>
+        </form>
     </div>
   )
 }
