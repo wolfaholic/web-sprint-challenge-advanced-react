@@ -27,15 +27,15 @@ const  {
         <h3 id="steps">You moved {state.movement} times</h3>
       </div>
       <div id="grid">
-        <div className="square"></div>
-        <div className="square"></div>
-        <div className="square"></div>
-        <div className="square"></div>
-        <div className="square active">B</div>
-        <div className="square"></div>
-        <div className="square"></div>
-        <div className="square"></div>
-        <div className="square"></div>
+        {x===1 && y===1}<div className="square"></div>
+        {x===2 && y===1}<div className="square"></div>
+        {x===3 && y===1}<div className="square"></div>
+        {x===1 && y===2}<div className="square"></div>
+        {x===2 && y===2}<div className="square active">B</div>
+        {x===3 && y===2}<div className="square"></div>
+        {x===1 && y===3}<div className="square"></div>
+        {x===2 && y===3}<div className="square"></div>
+        {x===3 && y===3}<div className="square"></div>
       </div>
       <div className="info">
         {boundry}<h3 id="message">{message}</h3>
