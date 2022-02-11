@@ -2,6 +2,9 @@ import React from 'react'
 import useKeypad from './hooks/useKeypad'
 
 
+ 
+  
+
 export default function AppFunctional(props) {
 
 const [
@@ -20,11 +23,15 @@ const  {
   y
 } = state
 
+
+
+
+
   return (
     <div id="wrapper" className={props.className}>
       <div className="info">
         <h3 id="coordinates">Coordinates ({state.x}, {state.y})</h3>
-        <h3 id="steps">You moved {state.movement} times</h3>
+        <h3 id="steps">You moved {state.steps} times</h3>
       </div>
       <div id="grid">
         {x===1 && y===1?<div className="square active">B</div>:<div className="square"></div>}
@@ -38,7 +45,7 @@ const  {
         {x===3 && y===3?<div className="square active">B</div>:<div className="square"></div>}
       </div>
       <div className="info">
-        {boundry}<h3 id="message">{message}</h3>
+        {boundry?<h3 id="message">{message}</h3>:<h3 id="message"></h3>}
       </div>
       <div id="keypad">
         <button onClick={handleLeft} id="left">LEFT</button>

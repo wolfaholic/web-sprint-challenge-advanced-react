@@ -1,9 +1,14 @@
+// import axios from 'axios';
 import { useState } from 'react';
 
+const URL =  "http://localhost:9000/api/result";
+
+console.log(URL);
 const initialState = {
     x: 2,
     y: 2,
-    movement: 0,
+    steps: 0,
+    email: '',
     boundry: false,
     message: '',
 }
@@ -22,7 +27,7 @@ const useKeypad = () => {
             setState((state) => ({
                 ...state,
                 y: state.y + 1,
-                movement: state.movement +1,
+                steps: state.steps +1,
                 boundry: false,
                 message: '',
             }))
@@ -37,7 +42,7 @@ const useKeypad = () => {
             setState((state) => ({
                 ...state,
                 y: state.y - 1,
-                movement: state.movement -1,
+                steps: state.steps +1,
                 boundry: false,
                 message: '',
             }))
@@ -53,7 +58,7 @@ const useKeypad = () => {
             setState((state) => ({
                 ...state,
                 x: state.x + 1,
-                movement: state.movement +1,
+                steps: state.steps +1,
                 boundry: false,
                 message: '',
             }))
@@ -69,13 +74,16 @@ const useKeypad = () => {
             setState((state) => ({
                 ...state,
                 x: state.x - 1,
-                movement: state.movement -1,
+                steps: state.steps +1,
                 boundry: false,
                 message: '',
             }))
         }
 
     }
+
+    
+    
 
     return [handleReset,handleDown,handleUp,handleRight,handleLeft, state]
 }
