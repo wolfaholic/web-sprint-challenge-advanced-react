@@ -1,11 +1,30 @@
 import React from 'react'
+import useKeypad from './hooks/useKeypad'
+
 
 export default function AppFunctional(props) {
+
+const [
+  handleReset,
+  handleDown,
+  handleUp,
+  handleRight,
+  handleLeft,
+  state,
+] = useKeypad()
+
+const  {
+  boundry, 
+  message, 
+  x, 
+  y
+} = state
+
   return (
     <div id="wrapper" className={props.className}>
       <div className="info">
-        <h3 id="coordinates">Coordinates (2, 2)</h3>
-        <h3 id="steps">You moved 0 times</h3>
+        <h3 id="coordinates">Coordinates ({state.x}, {state.y})</h3>
+        <h3 id="steps">You moved {state.movement} times</h3>
       </div>
       <div id="grid">
         <div className="square"></div>
@@ -19,7 +38,7 @@ export default function AppFunctional(props) {
         <div className="square"></div>
       </div>
       <div className="info">
-        <h3 id="message"></h3>
+        {boundry}<h3 id="message">{message}</h3>
       </div>
       <div id="keypad">
         <button id="left">LEFT</button>
