@@ -28,7 +28,7 @@ export default class AppClass extends React.Component {
       this.setState({...this.state,
       boundry:true,
       popUp:'',
-      message:"You can't go down anymore, Buddy",
+      message:"You can't go down",
     
     })
     }else{
@@ -48,7 +48,7 @@ export default class AppClass extends React.Component {
     this.setState({...this.state,
       boundry:true,
       popUp:'',
-      message:"You can't go up anymore, Buddy",
+      message:"You can't go up",
     
        
   })
@@ -69,7 +69,7 @@ export default class AppClass extends React.Component {
     this.setState({...this.state,
       boundry:true, 
       popUp:'',
-      message:"You can't go left anymore, Buddy",
+      message:"You can't go left",
     
     })
    }else{
@@ -88,7 +88,7 @@ export default class AppClass extends React.Component {
       this.setState({...this.state,
         boundry:true,
         popUp:'',
-      message:"You can't go right anymore, Buddy",
+      message:"You can't go right",
       
     })
     }else{
@@ -117,6 +117,7 @@ export default class AppClass extends React.Component {
       message: res.data.message,
       submit:true,
       popUp: '',
+      email: '',
     })
   })
   .catch(err=>{
@@ -126,7 +127,9 @@ export default class AppClass extends React.Component {
       submit: true,
       popUp: ''})
   })
-     
+  this.setState({...this.state,
+    input:e.target.reset()})
+ 
   }
   
   handleEmail=(e)=>{
@@ -139,14 +142,14 @@ export default class AppClass extends React.Component {
 
 
   render() {
-    const {x, y, steps, boundry, message, email} = this.state
+    const {x, y, steps, boundry, message} = this.state
 
     const { className } = this.props
     return (
       <div id="wrapper" className={className}>
         <div className="info">
           <h3 id="coordinates">Coordinates ({x}, {y})</h3>
-          <h3 id="steps">You moved {steps} times</h3>
+          <h3 id="steps">You moved {steps} time{steps === 1?"":"s"}</h3>
         </div>
         <div id="grid">
         {x===1 && y===1?<div className="square active">B</div>:<div className="square"></div>}
@@ -161,7 +164,8 @@ export default class AppClass extends React.Component {
       </div>
         <div className="info">
         {boundry?<h3 id="message">{message}</h3>:<h3 id="message"></h3>}
-        {email?<h3 id="message">{message}</h3>:<h3 id="message"></h3>}
+        {message?<h3 id="message">{message}</h3>:<h3 id="message"></h3>}
+
         </div>
         <div id="keypad">
           <button onClick={this.handleLeft} id="left">LEFT</button>
@@ -170,7 +174,7 @@ export default class AppClass extends React.Component {
           <button onClick={this.handleDown} id="down">DOWN</button>
           <button onClick={this.handleReset} id="reset">reset</button>
         </div>
-        <form onSubmit={this.onSubmit}>
+        <form id="emailForm" onSubmit={this.onSubmit}>
           <input onChange={this.handleEmail} id="email" type="email" placeholder="type email"></input>
           <input id="submit" type="submit"></input>
         </form>

@@ -23,7 +23,6 @@ const  {
   message, 
   x, 
   y,
-  email,
 } = state
 
 
@@ -31,7 +30,7 @@ const  {
     <div id="wrapper" className={props.className}>
       <div className="info">
         <h3 id="coordinates">Coordinates ({state.x}, {state.y})</h3>
-        <h3 id="steps">You moved {state.steps} times</h3>
+        <h3 id="steps">You moved {state.steps} time{state.steps === 1?"":"s"}</h3>
       </div>
       <div id="grid">
         {x===1 && y===1?<div className="square active">B</div>:<div className="square"></div>}
@@ -46,7 +45,7 @@ const  {
       </div>
       <div className="info">
         {boundry?<h3 id="message">{message}</h3>:<h3 id="message"></h3>}
-        {email?<h3 id="message">{message}</h3>:<h3 id="message"></h3>}
+        {message?<h3 id="message">{message}</h3>:<h3 id="message"></h3>}
       </div>
       <div id="keypad">
         <button onClick={handleLeft} id="left">LEFT</button>

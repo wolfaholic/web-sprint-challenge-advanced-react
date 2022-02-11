@@ -24,7 +24,7 @@ const useKeypad = () => {
 
     const handleDown = () => {
         if(state.y === 3){
-            setState({...state, boundry:true, message:"You can't go down anymore, buddy"})
+            setState({...state, boundry:true, message:"You can't go down"})
         } else {
             setState((state) => ({
                 ...state,
@@ -39,7 +39,7 @@ const useKeypad = () => {
 
     const handleUp = () => {
         if(state.y === 1){
-            setState({...state, boundry:true, message:"You can't go up anymore, buddy"})
+            setState({...state, boundry:true, message:"You can't go up"})
         } else {
             setState((state) => ({
                 ...state,
@@ -55,7 +55,7 @@ const useKeypad = () => {
 
     const handleRight = () => {
         if(state.x === 3){
-            setState({...state, boundry:true, message:"You can't go right anymore, buddy"})
+            setState({...state, boundry:true, message:"You can't go right"})
         } else {
             setState((state) => ({
                 ...state,
@@ -71,7 +71,7 @@ const useKeypad = () => {
 
     const handleLeft = () => {
         if(state.x === 1){
-            setState({...state, boundry:true, message:"You can't go left anymore, buddy"})
+            setState({...state, boundry:true, message:"You can't go left"})
         } else {
             setState((state) => ({
                 ...state,
@@ -106,6 +106,7 @@ const useKeypad = () => {
           message: res.data.message,
           submit:true,
           popUp: '',
+          email:''
         })
       })
       .catch(err=>{
@@ -113,7 +114,8 @@ const useKeypad = () => {
           setState({...state,
           message:errorMessage,
           submit: true,
-          popUp: ''})
+          popUp: ''
+          })
       })  
         setState({...state,input:e.target.reset()})
       }
