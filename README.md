@@ -87,4 +87,4 @@ Other browser/Node/NPM configurations might work but haven't been tested.
 - If the state that drives the grid is simple, it will be easier to update it as the user moves around.
 - "Product" works hard designing the messages: we must reproduce them faithfully, down to the last comma.
 - If you start with Functional, don't switch to Class-Based until Functional is passing all its tests (and vice versa).
-- If the direction of the `y` axis surprises you, know that elements in HTML also have their origin of coordinates on their top-left corner.
+- If the direction of the `y` axis surprises you, know that elements in HTML also have their origin of coordinates on their top-left corner..
