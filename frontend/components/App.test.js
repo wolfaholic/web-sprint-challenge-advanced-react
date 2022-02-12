@@ -1,35 +1,46 @@
-// import AppFunctional from "./AppFunctional"
-// import AppClass from "./AppClass"
-// import React from 'react';
-// import {render, screen } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
+import AppFunctional from "./AppFunctional"
+import AppClass from "./AppClass"
+import React from 'react';
+import {render, screen, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event'
 
-// // Write your tests here
-// test('sanity', () => {
-//   expect(true).toBe(false)
-// })
+// Write your tests here
+test('sanity', () => {
+  expect(true).toBe(false)
+})
 
-// test('renders AppFunctional')
-// render(<AppFunctional/>);
+//Test 1 - testing to see if AppFunctional renders
+test('renders AppFunctional without errors', () => { 
+  render(<AppFunctional/>);
+});
 
 
-// test('renders AppClass')
-// render(<AppClass/>);
+//Test 2 - testing to see if AppClass renders
+test('renders AppClass without errors', () => { 
+  render(<AppClass/>);
+});
 
-// test('renders if an invalid email is entered', async () => {
-//   render(<AppFunctional/>);
+//Test 3 - testing to see if AppFunctional buttons can move, up, left, down, right
+test ('tests the buttons movement right', () => {
+  render(<AppClass/>);
+  const buttonClick = screen.getByTestId('right');
+  userEvent.click(buttonClick)
+ });
 
-//   const emailInput = screen.getByLabelText(/email/i);
-//   userEvent.type(emailInput, 'melissa@email');
-// });
+//Test 4 - testing to see if App Class button can move left
+ test ('tests the buttons movement left', () => {
+  render(<AppClass/>);
+  const buttonClick = screen.getByTestId('left');
+  userEvent.click(buttonClick)
+ });
 
-// test('if can click left', async () => {
-// render(<AppFunctional/>);
+//Test 5 - verify that there is an error if nothing is submitted
+test('renders one error messages if user enters no values into any fields.', async () => {
+  render(<AppFunctional/>);
 
-// const leftClick = screen.getByLabelId('left');
-// userEvent.type(leftClick)
-// });
+  const submitButton = screen.getByRole('button');
+  userEvent.click(submitButton);
 
-// const rightClick = screen.getByLabelId('left');
-// userEvent.type(rightClick)
-// });
+  const errorMessages = await screen.findAllByTestId('error');
+  expect(errorMessages).toHaveLength(1);
+});
