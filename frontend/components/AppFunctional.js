@@ -23,6 +23,8 @@ const  {
   message, 
   x, 
   y,
+  popUp,
+  submit
 } = state
 
 
@@ -45,7 +47,7 @@ const  {
       </div>
       <div className="info">
         {boundry?<h3 id="message">{message}</h3>:<h3 id="message"></h3>}
-        {message?<h3 id="message">{message}</h3>:<h3 id="message"></h3>}
+        {submit?<h3 id="message">{message}</h3>:<h3 id="message"></h3>}
       </div>
       <div id="keypad">
         <button onClick={handleLeft} id="left">LEFT</button>
@@ -54,7 +56,7 @@ const  {
         <button onClick={handleDown} id="down">DOWN</button>
         <button onClick={handleReset} id="reset">reset</button>
       </div>
-      <form onSubmit={onSubmit}>
+      <form id='emailInput' onSubmit={onSubmit}>
           <input onChange={handleEmail} id="email" type="email" placeholder="type email"></input>
           <input id="submit" type="submit"></input>
         </form>

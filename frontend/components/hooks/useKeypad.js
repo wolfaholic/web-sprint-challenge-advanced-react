@@ -20,6 +20,7 @@ const useKeypad = () => {
 
     const handleReset = () => {
         setState(initialState)
+        document.getElementById("emailInput").reset()
     }
 
     const handleDown = () => {
@@ -32,6 +33,8 @@ const useKeypad = () => {
                 steps: state.steps +1,
                 boundry: false,
                 message: '',
+                submit: false,
+
             }))
         }
 
@@ -47,6 +50,7 @@ const useKeypad = () => {
                 steps: state.steps +1,
                 boundry: false,
                 message: '',
+                submit: false,
             }))
         }
 
@@ -63,6 +67,7 @@ const useKeypad = () => {
                 steps: state.steps +1,
                 boundry: false,
                 message: '',
+                submit: false,
             }))
         }
 
@@ -79,6 +84,7 @@ const useKeypad = () => {
                 steps: state.steps +1,
                 boundry: false,
                 message: '',
+                submit: false,
             }))
         }
 

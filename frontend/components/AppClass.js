@@ -21,6 +21,7 @@ export default class AppClass extends React.Component {
 
   handleReset = () =>{
     this.setState(initialState)
+    document.getElementById("emailInput").reset()
   }
   
   handleDown = () => {
@@ -142,7 +143,7 @@ export default class AppClass extends React.Component {
 
 
   render() {
-    const {x, y, steps, boundry, message} = this.state
+    const {x, y, steps, boundry, message, submit} = this.state
 
     const { className } = this.props
     return (
@@ -164,7 +165,7 @@ export default class AppClass extends React.Component {
       </div>
         <div className="info">
         {boundry?<h3 id="message">{message}</h3>:<h3 id="message"></h3>}
-        {message?<h3 id="message">{message}</h3>:<h3 id="message"></h3>}
+        {submit?<h3 id="message">{message}</h3>:<h3 id="message"></h3>}
 
         </div>
         <div id="keypad">
@@ -174,7 +175,7 @@ export default class AppClass extends React.Component {
           <button onClick={this.handleDown} id="down">DOWN</button>
           <button onClick={this.handleReset} id="reset">reset</button>
         </div>
-        <form id="emailForm" onSubmit={this.onSubmit}>
+        <form id="emailInput" onSubmit={this.onSubmit}>
           <input onChange={this.handleEmail} id="email" type="email" placeholder="type email"></input>
           <input id="submit" type="submit"></input>
         </form>
