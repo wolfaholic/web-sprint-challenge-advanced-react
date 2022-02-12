@@ -28,8 +28,8 @@ export default class AppClass extends React.Component {
     if(this.state.y === 3){
       this.setState({...this.state,
       boundry:true,
-      popUp:'',
-      message:"You can't go down",
+      popUp:"You can't go down",
+      message:"",
     
     })
     }else{
@@ -40,6 +40,7 @@ export default class AppClass extends React.Component {
         boundry: false,
         submit: false,
         message: '',
+        popUp:"",
       }))
     }
   }
@@ -48,10 +49,8 @@ export default class AppClass extends React.Component {
    if(this.state.y===1){
     this.setState({...this.state,
       boundry:true,
-      popUp:'',
-      message:"You can't go up",
-    
-       
+      popUp:"You can't go up",
+      message:"",   
   })
    }else{
     this.setState((state) => ({
@@ -69,9 +68,8 @@ export default class AppClass extends React.Component {
    if(this.state.x ===1){
     this.setState({...this.state,
       boundry:true, 
-      popUp:'',
-      message:"You can't go left",
-    
+      popUp:"You can't go left",
+      message:"",
     })
    }else{
     this.setState((state) => ({
@@ -88,8 +86,8 @@ export default class AppClass extends React.Component {
     if(this.state.x ===3){
       this.setState({...this.state,
         boundry:true,
-        popUp:'',
-      message:"You can't go right",
+        popUp:"You can't go right",
+        message:"",
       
     })
     }else{
@@ -143,7 +141,7 @@ export default class AppClass extends React.Component {
 
 
   render() {
-    const {x, y, steps, boundry, message, submit} = this.state
+    const {x, y, steps, boundry, message, submit, popUp} = this.state
 
     const { className } = this.props
     return (
@@ -164,7 +162,7 @@ export default class AppClass extends React.Component {
         {x===3 && y===3?<div className="square active">B</div>:<div className="square"></div>}
       </div>
         <div className="info">
-        {boundry?<h3 id="message">{message}</h3>:<h3 id="message"></h3>}
+        {boundry?<h3 id="message">{popUp}</h3>:<h3 id="message"></h3>}
         {submit?<h3 id="message">{message}</h3>:<h3 id="message"></h3>}
 
         </div>

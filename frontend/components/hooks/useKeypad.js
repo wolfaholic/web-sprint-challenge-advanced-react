@@ -25,7 +25,7 @@ const useKeypad = () => {
 
     const handleDown = () => {
         if(state.y === 3){
-            setState({...state, boundry:true, message:"You can't go down"})
+            setState({...state, boundry:true, message:"", popUp: "You can't go down"})
         } else {
             setState((state) => ({
                 ...state,
@@ -42,7 +42,7 @@ const useKeypad = () => {
 
     const handleUp = () => {
         if(state.y === 1){
-            setState({...state, boundry:true, message:"You can't go up"})
+            setState({...state, boundry:true, message:"", popUp: "You can't go up"})
         } else {
             setState((state) => ({
                 ...state,
@@ -59,7 +59,7 @@ const useKeypad = () => {
 
     const handleRight = () => {
         if(state.x === 3){
-            setState({...state, boundry:true, message:"You can't go right"})
+            setState({...state, boundry:true, message:"", popUp: "You can't go right"})
         } else {
             setState((state) => ({
                 ...state,
@@ -76,7 +76,7 @@ const useKeypad = () => {
 
     const handleLeft = () => {
         if(state.x === 1){
-            setState({...state, boundry:true, message:"You can't go left"})
+            setState({...state, boundry:true, mmessage:"", popUp: "You can't go left"})
         } else {
             setState((state) => ({
                 ...state,

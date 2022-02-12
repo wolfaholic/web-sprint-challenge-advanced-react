@@ -46,7 +46,7 @@ const  {
         {x===3 && y===3?<div className="square active">B</div>:<div className="square"></div>}
       </div>
       <div className="info">
-        {boundry?<h3 id="message">{message}</h3>:<h3 id="message"></h3>}
+        {boundry?<h3 id="message">{popUp}</h3>:<h3 id="message"></h3>}
         {submit?<h3 id="message">{message}</h3>:<h3 id="message"></h3>}
       </div>
       <div id="keypad">
